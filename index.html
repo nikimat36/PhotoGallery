@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: radial-gradient(rgb(0,0,1), rgb(0,0,51));
+        }
+
+        .box {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            transform-style: preserve-3d;
+            transform: perspective(1400px) rotateX(0deg) rotateY(0deg);
+        }
+
+        .box div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform-origin: center;
+            transform-style: preserve-3d;
+            transform: rotateX(calc(var(--i) * 45deg)) translateZ(400px);
+            opacity: 0.5;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .box div:hover {
+            cursor: pointer;
+            box-shadow: 0 0 50px white;
+        }
+
+        #yellow{ 
+            background-color: yellow; 
+            background-image: url('https://store-images.s-microsoft.com/image/apps.17555.14449609212792458.454eef9f-a0a5-4522-b519-e81aa7b40d6e.176d9e9a-fb7a-473e-90f6-26c2993854f4?mode=scale&q=90&h=1080&w=1920');
+            
+        }
+        #blue{ 
+            background-color: blue;
+            background-image: url('https://9to5mac.com/wp-content/uploads/sites/6/2020/01/Every-Mac-wallpaper.jpeg?quality=82&strip=all');       
+        }
+        #red{ 
+            background-color: red; 
+            background-image: url('https://free4kwallpapers.com/uploads/originals/2019/12/31/journey-painting-wallpaper.jpg');
+        }
+        #cyan{ 
+            background-color: cyan;  
+            background-image: url('https://webneel.com/wallpaper/sites/default/files/images/08-2018/1-nature-wallpaper-grass-hd.jpg');
+        }
+        #orange{ 
+            background-color: orange; 
+            background-image: url('https://esossl-a.akamaihd.net/assets/img/cms/media/56274c7523aff0fa1744819a554d7af4_the-halls-of-the-colossus_wallpaper-1920x1080.jpg');
+        }
+        #purple{ 
+            background-color: purple; 
+            background-image: url('https://wallpapercave.com/wp/wp2670841.jpg');
+        }
+        #white{ 
+            background-color: white; 
+            background-image: url('https://kbdevstorage1.blob.core.windows.net/asset-blobs/18958_en_1');
+        }
+        #lime{ 
+            background-color: lime; 
+            opacity: 1;
+            background-image: url('img1.jpg');
+        }
+
+        .left, .right {
+            outline: none;  /*odjebe: rámeček po kliku*/
+            position: absolute;
+            height: 100px;
+            width: 50px;
+            background: transparent;
+            font-size: 50pt;
+            border: none;
+            color: rgb(175, 175, 175);
+        }
+
+        .left{left: 10px;}
+        .right{right: 10px;}
+
+        button:hover {
+            color: white;
+            font-weight: bolder;
+        }
+
+        .coverTop, .coverBottom{
+            position:absolute;
+            width: 100%;
+            height: 30%;
+            z-index: 2;
+        }
+
+        .coverBottom{ bottom: 0;}
+        .coverTop{ top: 0; }
+
+        .bigimgs{
+            position: absolute;
+            height: 80%;
+            width: 80%;
+        }
+
+        .bigimgs div{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-position: center;
+            background-size: cover;
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-end;
+            visibility: hidden;
+        }
+        .big1{ background-image: url('https://store-images.s-microsoft.com/image/apps.17555.14449609212792458.454eef9f-a0a5-4522-b519-e81aa7b40d6e.176d9e9a-fb7a-473e-90f6-26c2993854f4?mode=scale&q=90&h=1080&w=1920');}
+        .big2{ background-image: url('https://9to5mac.com/wp-content/uploads/sites/6/2020/01/Every-Mac-wallpaper.jpeg?quality=82&strip=all');}
+        .big3{ background-image: url('https://free4kwallpapers.com/uploads/originals/2019/12/31/journey-painting-wallpaper.jpg');}
+        .big4{ background-image: url('https://webneel.com/wallpaper/sites/default/files/images/08-2018/1-nature-wallpaper-grass-hd.jpg');}
+
+        .big5{ background-image: url('https://esossl-a.akamaihd.net/assets/img/cms/media/56274c7523aff0fa1744819a554d7af4_the-halls-of-the-colossus_wallpaper-1920x1080.jpg');}
+        .big6{ background-image: url('https://wallpapercave.com/wp/wp2670841.jpg');}
+        .big7{ background-image: url('https://kbdevstorage1.blob.core.windows.net/asset-blobs/18958_en_1');}
+        .big8{ background-image: url('https://i.imgur.com/BHPUd0d.jpg');}
+
+        .bigimgs p{
+            height: 20%;
+            width: 100%;
+            padding: 10px;
+            bottom: 0;
+            color: white;
+            font-size: 12pt;
+            text-align: center;
+            background-color: rgba(32, 32, 32, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <div class="coverTop"></div>
+    <div class="bigimgs">
+        <div class="big1">
+            <p><span style="font-weight: bold; display: block; padding-bottom: 10px;">Snow Forest</span>
+                Lorem ipsum, Lorem ipsum... it's definitelly not a gypsum.</p>
+        </div>
+        <div class="big2">
+            <p><span style="font-weight: bold; display: block; padding-bottom: 10px;">Lonely Mountain</span>
+                Okey, it's not Lonely Mountain.. but it still looks lonely.</p>
+        </div>
+        <div class="big3">
+            <p><span style="font-weight: bold; display: block; padding-bottom: 10px;">City Sunset</span>
+                Well, what can I say, the Beach Sunset is prettier.</p>
+        </div>
+        <div class="big4">
+            <p><span style="font-weight: bold; display: block; padding-bottom: 10px;">Is that blue?</span>
+                May the green be with you. <(°.°)></p>
+        </div>
+
+        <div class="big5">
+            <p><span style="font-weight: bold; display: block; padding-bottom: 10px;">Totally Real Place</span>
+                Quick draw, by Nathan Drake</p>
+        </div>
+        <div class="big6">
+            <p><span style="font-weight: bold; display: block; padding-bottom: 10px;">Autumn Lake</span>
+                Autumn is my favourite seasson, and lake a favourite place. Great pisture, 10/10. </p>
+        </div>
+        <div class="big7">
+            <p><span style="font-weight: bold; display: block; padding-bottom: 10px;">Beach Sunset</span>
+                This picture was definitelly taken at Olešná.</p>
+        </div>
+        <div class="big8">
+            <p><span style="font-weight: bold; display: block; padding-bottom: 10px;">Some Circle..</span>
+                This Star Gate model Ra9 is absolutely.. useless, but its shiny!</p>
+        </div>
+    </div>
+    <div class="box">
+        <div style="--i:1;" id="yellow"></div>
+        <div style="--i:2;" id="blue"></div>
+        <div style="--i:3;" id="red"></div>
+        <div style="--i:4;" id="cyan"></div>
+
+        <div style="--i:5;" id="orange"></div>
+        <div style="--i:6;" id="purple"></div>
+        <div style="--i:7;" id="white"></div>
+        <div style="--i:8;" id="lime"></div>
+    </div>
+    <div class="coverBottom"></div>
+    <button class="left"><</button>
+    <button class="right">></button>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        count = 0;
+        $('.left').click(function(){
+            count -= 45;
+            $('.box').css("transform", "perspective(1400px) rotateX(" + count + "deg)");
+            $('.box').css("transition", "transform 1.5s ease-out");
+
+        });
+
+        $('.right').click(function(){
+            count += 45;
+            $('.box').css("transform", "perspective(1400px) rotateX(" + count + "deg)");
+            $('.box').css("transition", "transform 1.5s ease-out");
+        });
+
+
+        $('button').click(function(){
+            obrazkyOpacity();
+        });
+
+        function obrazkyOpacity(){
+            let b = 0;
+            for(let i = 0; i < $('.box div').length; i++){
+            b = (((i + 1)*45) + count);
+            if(b % 360 == 0){
+                $('.box div:eq(' + i + ')').css("opacity", "1");
+                $('.box div:eq(' + i + ')').css("transition", "opacity 0s ease-in");
+            }else {
+                $('.box div:eq(' + i + ')').css("opacity", "0.5");
+                $('.box div:eq(' + i + ')').css("transition", "opacity 1s ease-in");
+            }
+        }
+        };
+
+        let countb = 0; let m = 100;
+        $('.box div').click(function(){
+            if (countb == 0){
+                countb++;
+                m = $('.box div').index(this);
+                $('.bigimgs .big' + (m + 1) ).css("visibility", "visible");
+                $('button').css("pointer-events", "none");
+                $('button').css("visibility", "hidden");
+            }
+        });
+
+        $('.bigimgs div').click(function(){
+            if (countb != 0){
+                countb = 0;
+                $('.bigimgs .big' + (m + 1) ).css("visibility", "hidden");
+                $('button').css("pointer-events", "auto");
+                $('button').css("visibility", "visible");
+            }
+        });
+
+
+    </script>
+</body>
+</html>

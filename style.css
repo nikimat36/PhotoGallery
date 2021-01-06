@@ -1,0 +1,144 @@
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: radial-gradient(rgb(0,0,1), rgb(0,0,51));
+        }
+
+        .box {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            transform-style: preserve-3d;
+            transform: perspective(1400px) rotateX(0deg) rotateY(0deg);
+        }
+
+        .box div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform-origin: center;
+            transform-style: preserve-3d;
+            transform: rotateX(calc(var(--i) * 45deg)) translateZ(400px);
+            opacity: 0.5;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .box div:hover {
+            cursor: pointer;
+            box-shadow: 0 0 50px white;
+        }
+
+        #yellow{ 
+            background-color: yellow; 
+            background-image: url('forest.jpg');
+            
+        }
+        #blue{ 
+            background-color: blue;
+            background-image: url('mountain.jpg');       
+        }
+        #red{ 
+            background-color: red; 
+            background-image: url('city-sunset.jpg');
+        }
+        #cyan{ 
+            background-color: cyan;  
+            background-image: url('green.jpg');
+        }
+        #orange{ 
+            background-color: orange; 
+            background-image: url('sanctuary.jpg');
+        }
+        #purple{ 
+            background-color: purple; 
+            background-image: url('autumn-lake.jpg');
+        }
+        #white{ 
+            background-color: white; 
+            background-image: url('beach-sunset.jpg');
+        }
+        #lime{ 
+            background-color: lime; 
+            opacity: 1;
+            background-image: url('portal-scifi.jpg');
+        }
+
+        .left, .right {
+            outline: none;  /*odjebe: rámeček po kliku*/
+            position: absolute;
+            height: 100px;
+            width: 50px;
+            background: transparent;
+            font-size: 50pt;
+            border: none;
+            color: rgb(175, 175, 175);
+        }
+
+        .left{left: 10px;}
+        .right{right: 10px;}
+
+        button:hover {
+            color: white;
+            font-weight: bolder;
+        }
+
+        .coverTop, .coverBottom{
+            position:absolute;
+            width: 100%;
+            height: 30%;
+            z-index: 2;
+        }
+
+        .coverBottom{ bottom: 0;}
+        .coverTop{ top: 0; }
+
+        .bigimgs{
+            position: absolute;
+            height: 80%;
+            width: 80%;
+        }
+
+        .bigimgs div{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-position: center;
+            background-size: cover;
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-end;
+            visibility: hidden;
+        }
+        .big1{ background-image: url('forest.jpg');}
+        .big2{ background-image: url('mountain.jpg');}
+        .big3{ background-image: url('city-sunset.jpg');}
+        .big4{ background-image: url('green.jpg');}
+
+        .big5{ background-image: url('sanctuary.jpg');}
+        .big6{ background-image: url('autumn-lake.jpg');}
+        .big7{ background-image: url('beach-sunset.jpg');}
+        .big8{ background-image: url('portal-scifi.jpg');}
+
+        .bigimgs p{
+            height: 20%;
+            width: 100%;
+            padding: 10px;
+            bottom: 0;
+            color: white;
+            font-size: 12pt;
+            text-align: center;
+            background-color: rgba(32, 32, 32, 0.8);
+        }
